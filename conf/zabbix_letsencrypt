@@ -1,0 +1,3 @@
+Cmnd_Alias ZABB = /etc/zabbix/scripts/letsencrypt/cert_discovery.py, /etc/zabbix/scripts/letsencrypt/cert_check.py
+Defaults:zabbix !requiretty
+zabbix ALL=NOPASSWD: ZABB
