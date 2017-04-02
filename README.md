@@ -10,7 +10,7 @@ Zabbix template for letsencrypt certificates monitoring.
 
 Don't forget change paths:
 
-1. Edit `/etc/sudoers` and add this line: ```zabbix  ALL=(ALL:ALL) NOPASSWD:ALL```
+1. Copy sudo permissions ```cp -r ./zabbix_letsencrypt/conf/zabbix_letsencrypt /etc/sudoers.d/```
 
 2. Copy scripts: ```cp -r ./zabbix_letsencrypt/scripts/letsencrypt /etc/zabbix/scripts/```
 
