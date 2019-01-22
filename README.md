@@ -2,6 +2,10 @@
 
 Zabbix template for letsencrypt certificates monitoring.
 
+## Version 2019-01-22
+- Added support to detect certbot version
+- Trigger when certbot version below 0.28
+
 ## System requirements
 
 - python

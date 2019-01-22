@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
-    <version>2.0</version>
-    <date>2016-02-05T10:35:27Z</date>
+    <version>4.0</version>
+    <date>2019-01-22T07:39:01Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -11,6 +11,7 @@
         <template>
             <template>Template App Letsencrypt</template>
             <name>Template App Letsencrypt</name>
+            <description/>
             <groups>
                 <group>
                     <name>Templates</name>
@@ -18,25 +19,30 @@
             </groups>
             <applications>
                 <application>
-                    <name>letsencrypt</name>
+                    <name>Letsencrypt</name>
                 </application>
             </applications>
-            <items/>
-            <discovery_rules>
-                <discovery_rule>
-                    <name>letsencrypt</name>
-                    <type>0</type>
+            <items>
+                <item>
+                    <name>Certbot version</name>
+                    <type>7</type>
                     <snmp_community/>
                     <snmp_oid/>
-                    <key>letsencrypt_cert_discovery</key>
-                    <delay>3600</delay>
+                    <key>certbot.version</key>
+                    <delay>1h</delay>
+                    <history>90d</history>
+                    <trends>0</trends>
                     <status>0</status>
+                    <value_type>1</value_type>
                     <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
                     <snmpv3_securityname/>
                     <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
                     <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
                     <snmpv3_privpassphrase/>
-                    <delay_flex/>
                     <params/>
                     <ipmi_sensor/>
                     <authtype>0</authtype>
@@ -45,34 +51,173 @@
                     <publickey/>
                     <privatekey/>
                     <port/>
-                    <filter>{#DOMAIN}:</filter>
-                    <lifetime>1</lifetime>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Letsencrypt</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>5</type>
+                            <params>(.*)\s(\d+\.)?(\d+\.)?(\*|\d+)$
+\2\3\4</params>
+                        </step>
+                    </preprocessing>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item/>
+                </item>
+                <item>
+                    <name>Certbot version numeric</name>
+                    <type>18</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>certbot.version.float</key>
+                    <delay>0</delay>
+                    <history>90d</history>
+                    <trends>365d</trends>
+                    <status>0</status>
+                    <value_type>0</value_type>
+                    <allowed_hosts/>
+                    <units/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <description/>
+                    <inventory_link>0</inventory_link>
+                    <applications>
+                        <application>
+                            <name>Letsencrypt</name>
+                        </application>
+                    </applications>
+                    <valuemap/>
+                    <logtimefmt/>
+                    <preprocessing>
+                        <step>
+                            <type>5</type>
+                            <params>^(\d+)\.?(\d+)\.?(\*|\d+)$
+\1.\2\3</params>
+                        </step>
+                    </preprocessing>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>0</request_method>
+                    <output_format>0</output_format>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
+                    <master_item>
+                        <key>certbot.version</key>
+                    </master_item>
+                </item>
+            </items>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>letsencrypt</name>
+                    <type>7</type>
+                    <snmp_community/>
+                    <snmp_oid/>
+                    <key>letsencrypt_cert_discovery</key>
+                    <delay>15m</delay>
+                    <status>0</status>
+                    <allowed_hosts/>
+                    <snmpv3_contextname/>
+                    <snmpv3_securityname/>
+                    <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                    <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                    <snmpv3_authpassphrase/>
+                    <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                    <snmpv3_privpassphrase/>
+                    <params/>
+                    <ipmi_sensor/>
+                    <authtype>0</authtype>
+                    <username/>
+                    <password/>
+                    <publickey/>
+                    <privatekey/>
+                    <port/>
+                    <filter>
+                        <evaltype>0</evaltype>
+                        <formula/>
+                        <conditions>
+                            <condition>
+                                <macro>{#DOMAIN}</macro>
+                                <value/>
+                                <operator>8</operator>
+                                <formulaid>A</formulaid>
+                            </condition>
+                        </conditions>
+                    </filter>
+                    <lifetime>1d</lifetime>
                     <description/>
                     <item_prototypes>
                         <item_prototype>
-                            <name>letsencrypt_cert_check_{#DOMAIN}</name>
-                            <type>0</type>
+                            <name>letsencrypt_cert_account_{#DOMAIN}</name>
+                            <type>7</type>
                             <snmp_community/>
-                            <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>letsencrypt_cert_check[&quot;{#DOMAIN}&quot;]</key>
-                            <delay>3600</delay>
-                            <history>1</history>
-                            <trends>1</trends>
+                            <key>letsencrypt_cert_account[&quot;{#DOMAIN}&quot;]</key>
+                            <delay>1h</delay>
+                            <history>1d</history>
+                            <trends>0</trends>
                             <status>0</status>
-                            <value_type>3</value_type>
+                            <value_type>1</value_type>
                             <allowed_hosts/>
                             <units/>
-                            <delta>0</delta>
+                            <snmpv3_contextname/>
                             <snmpv3_securityname/>
                             <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
                             <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
                             <snmpv3_privpassphrase/>
-                            <formula>1</formula>
-                            <delay_flex/>
                             <params/>
                             <ipmi_sensor/>
-                            <data_type>0</data_type>
                             <authtype>0</authtype>
                             <username/>
                             <password/>
@@ -83,38 +228,329 @@
                             <inventory_link>0</inventory_link>
                             <applications>
                                 <application>
-                                    <name>letsencrypt</name>
+                                    <name>Letsencrypt</name>
                                 </application>
                             </applications>
                             <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>(account =)\s((.)*)
+\2</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <timeout>3s</timeout>
+                            <url/>
+                            <query_fields/>
+                            <posts/>
+                            <status_codes>200</status_codes>
+                            <follow_redirects>1</follow_redirects>
+                            <post_type>0</post_type>
+                            <http_proxy/>
+                            <headers/>
+                            <retrieve_mode>0</retrieve_mode>
+                            <request_method>0</request_method>
+                            <output_format>0</output_format>
+                            <allow_traps>0</allow_traps>
+                            <ssl_cert_file/>
+                            <ssl_key_file/>
+                            <ssl_key_password/>
+                            <verify_peer>0</verify_peer>
+                            <verify_host>0</verify_host>
+                            <application_prototypes/>
+                            <master_item/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>letsencrypt_cert_check_{#DOMAIN}</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>letsencrypt_cert_check[&quot;{#DOMAIN}&quot;]</key>
+                            <delay>1h</delay>
+                            <history>1d</history>
+                            <trends>1d</trends>
+                            <status>0</status>
+                            <value_type>3</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Letsencrypt</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing/>
+                            <jmx_endpoint/>
+                            <timeout>3s</timeout>
+                            <url/>
+                            <query_fields/>
+                            <posts/>
+                            <status_codes>200</status_codes>
+                            <follow_redirects>1</follow_redirects>
+                            <post_type>0</post_type>
+                            <http_proxy/>
+                            <headers/>
+                            <retrieve_mode>0</retrieve_mode>
+                            <request_method>1</request_method>
+                            <output_format>0</output_format>
+                            <allow_traps>0</allow_traps>
+                            <ssl_cert_file/>
+                            <ssl_key_file/>
+                            <ssl_key_password/>
+                            <verify_peer>0</verify_peer>
+                            <verify_host>0</verify_host>
+                            <application_prototypes/>
+                            <master_item/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>letsencrypt_cert_version_{#DOMAIN}</name>
+                            <type>7</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>letsencrypt_cert_version[&quot;{#DOMAIN}&quot;]</key>
+                            <delay>1h</delay>
+                            <history>1d</history>
+                            <trends>0</trends>
+                            <status>0</status>
+                            <value_type>1</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Letsencrypt</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>(.*)\s(\d+\.)?(\d+\.)?(\*|\d+)$
+\2\3\4</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <timeout>3s</timeout>
+                            <url/>
+                            <query_fields/>
+                            <posts/>
+                            <status_codes>200</status_codes>
+                            <follow_redirects>1</follow_redirects>
+                            <post_type>0</post_type>
+                            <http_proxy/>
+                            <headers/>
+                            <retrieve_mode>0</retrieve_mode>
+                            <request_method>0</request_method>
+                            <output_format>0</output_format>
+                            <allow_traps>0</allow_traps>
+                            <ssl_cert_file/>
+                            <ssl_key_file/>
+                            <ssl_key_password/>
+                            <verify_peer>0</verify_peer>
+                            <verify_host>0</verify_host>
+                            <application_prototypes/>
+                            <master_item/>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>letsencrypt_cert_version_numeric_{#DOMAIN}</name>
+                            <type>18</type>
+                            <snmp_community/>
+                            <snmp_oid/>
+                            <key>letsencrypt_cert_version_numeric[&quot;{#DOMAIN}&quot;]</key>
+                            <delay>0</delay>
+                            <history>1d</history>
+                            <trends>365d</trends>
+                            <status>0</status>
+                            <value_type>0</value_type>
+                            <allowed_hosts/>
+                            <units/>
+                            <snmpv3_contextname/>
+                            <snmpv3_securityname/>
+                            <snmpv3_securitylevel>0</snmpv3_securitylevel>
+                            <snmpv3_authprotocol>0</snmpv3_authprotocol>
+                            <snmpv3_authpassphrase/>
+                            <snmpv3_privprotocol>0</snmpv3_privprotocol>
+                            <snmpv3_privpassphrase/>
+                            <params/>
+                            <ipmi_sensor/>
+                            <authtype>0</authtype>
+                            <username/>
+                            <password/>
+                            <publickey/>
+                            <privatekey/>
+                            <port/>
+                            <description/>
+                            <inventory_link>0</inventory_link>
+                            <applications>
+                                <application>
+                                    <name>Letsencrypt</name>
+                                </application>
+                            </applications>
+                            <valuemap/>
+                            <logtimefmt/>
+                            <preprocessing>
+                                <step>
+                                    <type>5</type>
+                                    <params>^(\d+)\.?(\d+)\.?(\*|\d+)$
+\1.\2\3</params>
+                                </step>
+                            </preprocessing>
+                            <jmx_endpoint/>
+                            <timeout>3s</timeout>
+                            <url/>
+                            <query_fields/>
+                            <posts/>
+                            <status_codes>200</status_codes>
+                            <follow_redirects>1</follow_redirects>
+                            <post_type>0</post_type>
+                            <http_proxy/>
+                            <headers/>
+                            <retrieve_mode>0</retrieve_mode>
+                            <request_method>0</request_method>
+                            <output_format>0</output_format>
+                            <allow_traps>0</allow_traps>
+                            <ssl_cert_file/>
+                            <ssl_key_file/>
+                            <ssl_key_password/>
+                            <verify_peer>0</verify_peer>
+                            <verify_host>0</verify_host>
+                            <application_prototypes/>
+                            <master_item>
+                                <key>letsencrypt_cert_version[&quot;{#DOMAIN}&quot;]</key>
+                            </master_item>
                         </item_prototype>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template App Letsencrypt:letsencrypt_cert_check[&quot;{#DOMAIN}&quot;].last(0)}&lt;3</expression>
-                            <name>Letsencrypt: certificate for {#DOMAIN} will finished after {ITEM.VALUE} days</name>
-                            <url/>
-                            <status>0</status>
-                            <priority>5</priority>
-                            <description/>
-                            <type>0</type>
-                        </trigger_prototype>
-                        <trigger_prototype>
-                            <expression>{Template App Letsencrypt:letsencrypt_cert_check[&quot;{#DOMAIN}&quot;].last(0)}&lt;10</expression>
-                            <name>Letsencrypt: certificate for {#DOMAIN} will finished after {ITEM.VALUE} days</name>
+                            <expression>{Template App Letsencrypt:letsencrypt_cert_version_numeric[&quot;{#DOMAIN}&quot;].last()}&lt;0.28</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Letsencrypt: certificate certbot version for {#DOMAIN} &lt;0.28 ({ITEM.VALUE})</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
                             <url/>
                             <status>0</status>
                             <priority>4</priority>
                             <description/>
                             <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Letsencrypt:letsencrypt_cert_check[&quot;{#DOMAIN}&quot;].last(0)}&lt;3</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Letsencrypt: certificate for {#DOMAIN} will finished after {ITEM.VALUE} days</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>5</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
+                        </trigger_prototype>
+                        <trigger_prototype>
+                            <expression>{Template App Letsencrypt:letsencrypt_cert_check[&quot;{#DOMAIN}&quot;].last(0)}&lt;10</expression>
+                            <recovery_mode>0</recovery_mode>
+                            <recovery_expression/>
+                            <name>Letsencrypt: certificate for {#DOMAIN} will finished after {ITEM.VALUE} days</name>
+                            <correlation_mode>0</correlation_mode>
+                            <correlation_tag/>
+                            <url/>
+                            <status>0</status>
+                            <priority>4</priority>
+                            <description/>
+                            <type>0</type>
+                            <manual_close>0</manual_close>
+                            <dependencies/>
+                            <tags/>
                         </trigger_prototype>
                     </trigger_prototypes>
                     <graph_prototypes/>
+                    <host_prototypes/>
+                    <jmx_endpoint/>
+                    <timeout>3s</timeout>
+                    <url/>
+                    <query_fields/>
+                    <posts/>
+                    <status_codes>200</status_codes>
+                    <follow_redirects>1</follow_redirects>
+                    <post_type>0</post_type>
+                    <http_proxy/>
+                    <headers/>
+                    <retrieve_mode>0</retrieve_mode>
+                    <request_method>1</request_method>
+                    <allow_traps>0</allow_traps>
+                    <ssl_cert_file/>
+                    <ssl_key_file/>
+                    <ssl_key_password/>
+                    <verify_peer>0</verify_peer>
+                    <verify_host>0</verify_host>
                 </discovery_rule>
             </discovery_rules>
+            <httptests/>
             <macros/>
             <templates/>
             <screens/>
         </template>
     </templates>
+    <triggers>
+        <trigger>
+            <expression>{Template App Letsencrypt:certbot.version.last()}&lt;0.28</expression>
+            <recovery_mode>0</recovery_mode>
+            <recovery_expression/>
+            <name>Certbot older than version 0.28 ({ITEM.VALUE})</name>
+            <correlation_mode>0</correlation_mode>
+            <correlation_tag/>
+            <url/>
+            <status>0</status>
+            <priority>3</priority>
+            <description/>
+            <type>0</type>
+            <manual_close>0</manual_close>
+            <dependencies/>
+            <tags/>
+        </trigger>
+    </triggers>
 </zabbix_export>
