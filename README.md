@@ -2,6 +2,14 @@
 
 Zabbix template for letsencrypt certificates monitoring.
 
+## Version 2019-04-30
+- Ignore files in cert folder (0.32 certbot puts a readme file in that folder)
+
+
+## Version 2019-01-22
+- Added support to detect certbot version
+- Trigger when certbot version below 0.28
+
 ## System requirements
 
 - python
